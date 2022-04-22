@@ -84,7 +84,10 @@ const Login = () => {
             <Box cursor="pointer" _hover={{ textColor: "#1db954" }}>
               <RiGithubFill
                 onClick={() => {
-                  window.open("", "_blank");
+                  window.open(
+                    "https://github.com/davahamka/gg-final-project",
+                    "_blank"
+                  );
                 }}
                 fontSize="1.6em"
               />

@@ -10,6 +10,4 @@ const renderWithProvider = (children) =>
 
 test("it should render button component", () => {
   renderWithProvider(<Login />);
-
-  
 });
