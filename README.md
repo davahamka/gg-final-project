@@ -2,13 +2,14 @@
 Limbo is an application to put your favorite songs into a playlist. This application is integrated with spotify.
 
 ## Feature
-- Add Playlist
-- Insert Track into playlist
+- Add playlist
+- Find track
+- Insert track into playlist
 - Implement redux toolkit
 - Implement test
 - Show display picture - <b>additional</b>
 - Implement redux thunk async - <b>additional</b>
-- Implement MSW additional - <b>additional</b>
+- Implement MSW - <b>additional</b>
 
 ## How to Install
 1. Clone this repository
