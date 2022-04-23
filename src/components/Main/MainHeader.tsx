@@ -25,13 +25,13 @@ const MainHeader = () => {
       height="70px"
       display="flex"
       alignItems="center"
-      px={{ base: "12px", lg: "48px" }}
+      px={{ base: "20px", lg: "48px" }}
       justifyContent="space-between"
     >
       <Box display="flex" experimental_spaceX="6px">
         <Box
-          width="40px"
-          height="40px"
+          width={{ base: "32px", lg: "40px" }}
+          height={{ base: "32px", lg: "40px" }}
           bg="#1F1F22"
           borderRadius="3xl"
           alignItems="center"
@@ -44,8 +44,8 @@ const MainHeader = () => {
           <FiChevronLeft size="1.2em" color="#fff" />
         </Box>
         <Box
-          width="40px"
-          height="40px"
+          width={{ base: "32px", lg: "40px" }}
+          height={{ base: "32px", lg: "40px" }}
           bg="#1F1F22"
           borderRadius="3xl"
           alignItems="center"
@@ -58,13 +58,13 @@ const MainHeader = () => {
           <FiChevronRight size="1.2em" color="#fff" />
         </Box>
       </Box>
-      <Box display="flex" experimental_spaceX="6px">
+      <Box display="flex" alignItems="center" experimental_spaceX="6px">
         <InputGroup rounded="">
           <InputLeftElement pointerEvents="none">
             <FiSearch color="#fff" />
           </InputLeftElement>
           <Input
-            width="280px"
+            width={{ lg: "280px" }}
             bg="#1F1F22"
             placeholder="Search"
             color="#fff"
@@ -75,10 +75,10 @@ const MainHeader = () => {
           />
         </InputGroup>
         <Box
-          minW="40px"
-          maxW="40px"
-          width="40px"
-          height="40px"
+          minW={{ base: "32px", lg: "40px" }}
+          minH={{ base: "32px", lg: "40px" }}
+          width={{ base: "32px", lg: "40px" }}
+          height={{ base: "32px", lg: "40px" }}
           bg="#1F1F22"
           borderRadius="3xl"
           alignItems="center"

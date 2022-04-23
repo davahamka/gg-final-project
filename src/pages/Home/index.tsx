@@ -13,7 +13,6 @@ import {
   Tooltip,
 } from "@chakra-ui/react";
 import Layout from "../../components/Layout";
-import Main from "./Main";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import ItemTrack from "../../components/ItemTrack";
 import { FiMusic } from "react-icons/fi";
@@ -78,7 +77,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <Box px={{ base: "12px", lg: "48px" }} pb="48px">
+      <Box px={{ base: "20px", lg: "48px" }} pb="48px">
         {selectedTracks.length > 0 ? (
           <>
             <Text color="#fff">New Playlist</Text>

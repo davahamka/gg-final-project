@@ -29,7 +29,7 @@ const ItemTrack = ({ data }: Props) => {
     >
       <Box display="flex">
         <Box>
-          <Image src={data.album.images[0].url} width="120px" />
+          <Image src={data.album.images[0].url} width="120px" minW="120px" />
         </Box>
         <Box px="12px" py="8px">
           <Text color="whiteAlpha.900" fontSize="xl" fontWeight="bold">

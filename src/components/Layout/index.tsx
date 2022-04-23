@@ -11,7 +11,7 @@ const Layout = ({ children }: Props) => {
   return (
     <Box display="flex">
       <Sidebar />
-      <Box w="full" ml="18%">
+      <Box w="full" ml={{ lg: "18%" }}>
         <Main>{children}</Main>
       </Box>
     </Box>
