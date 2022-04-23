@@ -80,10 +80,17 @@ const Home = () => {
       <Box px={{ base: "20px", lg: "48px" }} pb="48px">
         {selectedTracks.length > 0 ? (
           <>
-            <Text color="#fff">New Playlist</Text>
-            <Box height="380px" bg="#1F1F22" mb="24px">
+            <Heading fontSize="lg" color="whiteAlpha.900" mt="4px" mb="12px">
+              New Playlist
+            </Heading>
+            <Box
+              height={{ base: "full", lg: "380px" }}
+              pb={{ base: "20px", lg: "0" }}
+              bg="#1F1F22"
+              mb="24px"
+            >
               <SimpleGrid columns={8}>
-                <GridItem colSpan={2} p="3">
+                <GridItem colSpan={[8, 8, 8, 2]} p="3">
                   <Box
                     color="#fff"
                     height="240px"
@@ -121,7 +128,12 @@ const Home = () => {
                     ))}
                   </Box>
                 </GridItem>
-                <GridItem colSpan={6} px="14px" pos="relative" height="full">
+                <GridItem
+                  colSpan={[8, 8, 8, 6]}
+                  px="14px"
+                  pos="relative"
+                  height="full"
+                >
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <Box
                       mt="8px"
