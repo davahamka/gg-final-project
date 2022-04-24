@@ -8,20 +8,39 @@ import Login from "./pages/Login";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import PrivateRoute from "./components/PrivateRoute";
+import Playlist from "./pages/Playlist";
+import Layout from "./components/Layout";
+import DetailPlaylist from "./pages/DetailPlaylist";
+import Profile from "./pages/Profile";
+import { AppProvider } from "./context/AppContext";
 
 function App() {
   return (
     <Provider store={store}>
-      <Router>
-        <ChakraProvider theme={theme}>
-          <Switch>
-            <PrivateRoute exact path="/" component={Home} />
-            <Route exact path="/login">
-              <Login />
-            </Route>
-          </Switch>
-        </ChakraProvider>
-      </Router>
+      <AppProvider>
+        <Router>
+          <ChakraProvider theme={theme}>
+            <Switch>
+              <Route exact path="/login">
+                <Login />
+              </Route>
+            </Switch>
+
+            <Layout>
+              <Switch>
+                <PrivateRoute exact path="/" component={Home} />
+                <PrivateRoute exact path="/playlist" component={Playlist} />
+                <PrivateRoute
+                  exact
+                  path="/playlist/:id"
+                  component={DetailPlaylist}
+                />
+                <PrivateRoute exact path="/profile" component={Profile} />
+              </Switch>
+            </Layout>
+          </ChakraProvider>
+        </Router>
+      </AppProvider>
     </Provider>
   );
 }

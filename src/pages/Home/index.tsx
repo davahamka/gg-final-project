@@ -76,7 +76,7 @@ const Home = () => {
   };
 
   return (
-    <Layout>
+    <>
       <Box px={{ base: "20px", lg: "48px" }} pb="48px">
         {selectedTracks.length > 0 ? (
           <>
@@ -211,7 +211,7 @@ const Home = () => {
           )}
         </Box>
       </Box>
-    </Layout>
+    </>
   );
 };
 

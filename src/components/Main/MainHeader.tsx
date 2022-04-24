@@ -1,18 +1,29 @@
 import { Box, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { FiChevronLeft, FiChevronRight, FiSearch } from "react-icons/fi";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { searchTracks, setSearch } from "../../modules/tracks/trackSlice";
 import debounce from "lodash.debounce";
+import { useHistory, useLocation } from "react-router-dom";
+import { AppContext } from "../../context/AppContext";
 
 const MainHeader = () => {
   const [search, setSearch] = useState("");
   const dispatch = useAppDispatch();
   const { token } = useAppSelector((state) => state.auth);
+  const location = useLocation();
+  const history = useHistory();
+  const { colorTop, setColorTop } = useContext(AppContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
+
+  useEffect(() => {
+    if (search.length > 0 && location.pathname != "/") {
+      history.push("/");
+    }
+  }, [search]);
 
   useEffect(() => {
     if (search.length > 0) {
@@ -20,11 +31,18 @@ const MainHeader = () => {
     }
   }, [search]);
 
+  if (location.pathname == "/profile") {
+    setColorTop("canvas.index2");
+  } else {
+    setColorTop("canvas.index0");
+  }
+
   return (
     <Box
       height="70px"
       display="flex"
       alignItems="center"
+      bg={colorTop}
       px={{ base: "20px", lg: "48px" }}
       justifyContent="space-between"
     >
@@ -39,6 +57,9 @@ const MainHeader = () => {
           display="flex"
           cursor="pointer"
           borderWidth="1px"
+          onClick={() => {
+            history.goBack();
+          }}
           borderColor="rgba(235, 235, 255,0.05)"
         >
           <FiChevronLeft size="1.2em" color="#fff" />
@@ -54,6 +75,9 @@ const MainHeader = () => {
           cursor="pointer"
           borderWidth="1px"
           borderColor="rgba(235, 235, 255,0.05)"
+          onClick={() => {
+            history.goForward();
+          }}
         >
           <FiChevronRight size="1.2em" color="#fff" />
         </Box>

@@ -10,7 +10,7 @@ import { rest } from "msw"
 import Sidebar from "../components/Sidebar";
 
 const server = setupServer(
-    rest.get("/users/:id/playlist?*", (req, res, ctx) => {
+    rest.get("/users/:id/playlist?accessToken=null&", (req, res, ctx) => {
       return res(ctx.json(mockPlaylistResponse));
     })
   );

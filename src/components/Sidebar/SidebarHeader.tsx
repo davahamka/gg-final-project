@@ -1,11 +1,25 @@
 import React, { useEffect } from "react";
-import { Avatar, Box, Image, Text } from "@chakra-ui/react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Image,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+} from "@chakra-ui/react";
 import { AiOutlineEllipsis } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getProfileAuth } from "../../modules/auth/authSlice";
+import { useHistory } from "react-router-dom";
 
 const SidebarHeader = () => {
   const dispatch = useAppDispatch();
+
+  const history = useHistory();
+
   const { statusProfile, token, dataProfile } = useAppSelector(
     (state) => state.auth
   );
@@ -30,7 +44,22 @@ const SidebarHeader = () => {
         height="42px"
         src={`${dataProfile?.images[0].url}`}
       />
-      <AiOutlineEllipsis color="#fff" fontSize="1.5em" />
+      <Menu>
+        <MenuButton as={Box} cursor="pointer">
+          <Box cursor="pointer">
+            <AiOutlineEllipsis color="#fff" fontSize="1.5em" />
+          </Box>
+        </MenuButton>
+        <MenuList>
+          <MenuItem
+            onClick={() => {
+              history.push("/profile");
+            }}
+          >
+            Profile
+          </MenuItem>
+        </MenuList>
+      </Menu>
     </Box>
   );
 };

@@ -1,4 +1,4 @@
-export const playlist = {
+export const mockPlaylistResponse = {
     "href" : "https://api.spotify.com/v1/users/davahamka18/playlists?offset=0&limit=20",
     "items" : [ {
       "collaborative" : false,

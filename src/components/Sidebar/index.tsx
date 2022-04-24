@@ -30,13 +30,25 @@ const Sidebar = () => {
       <SidebarHeader />
 
       <Box pt="40px" display="flex" flexDir="column" experimental_spaceY="12px">
-        <Box color="#fff" cursor="pointer">
+        <Box
+          color="#fff"
+          cursor="pointer"
+          onClick={() => {
+            history.push("/");
+          }}
+        >
           Home
         </Box>
         <Box color="whiteAlpha.200" cursor="pointer">
           Explore
         </Box>
-        <Box color="whiteAlpha.200" cursor="Playlist">
+        <Box
+          color="#fff"
+          cursor="pointer"
+          onClick={() => {
+            history.push("/playlist");
+          }}
+        >
           Playlist
         </Box>
         <Box
@@ -51,7 +63,7 @@ const Sidebar = () => {
         </Box>
       </Box>
 
-      <Box>
+      <Box pb="16px">
         <SidebarMenu title="MY PLAYLISTS" data={dataMyPlaylist?.items} />
       </Box>
     </Box>

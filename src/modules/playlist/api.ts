@@ -18,7 +18,7 @@ export const playlistApi = {
   getUserPlaylist: async (token: string, { rejectWithValue }: any) => {
     try {
       const response = await spotifyApi.get<MyPlaylistResponse>(
-        `me/playlists?access_token=${token}`
+        `me/playlists?access_token=${token}&limit=30`
       );
       return response.data;
     } catch (err) {

@@ -8,6 +8,6 @@ import { store } from "../store";
 const renderWithProvider = (children) =>
   render(<Provider store={store}>{children}</Provider>);
 
-test("it should render button component", () => {
+test("it should render input component", () => {
   renderWithProvider(<Login />);
 });

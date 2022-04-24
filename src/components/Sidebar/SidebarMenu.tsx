@@ -1,5 +1,6 @@
 import { Box, Skeleton, Text } from "@chakra-ui/react";
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useAppSelector } from "../../hooks";
 import { Item } from "../../modules/playlist/entities";
 
@@ -10,6 +11,8 @@ type Props = {
 
 const SidebarMenu = ({ title, data }: Props) => {
   const { statusMyPlaylist } = useAppSelector((state) => state.playlist);
+  const history = useHistory();
+
   return (
     <Box mt="32px">
       <Text fontSize="xs" fontWeight="bold" color="#fff" mb="6px">
@@ -22,7 +25,14 @@ const SidebarMenu = ({ title, data }: Props) => {
             ))
           : statusMyPlaylist === "succeded"
           ? data?.map((item) => (
-              <Box key={item.id} textColor="white" cursor="pointer">
+              <Box
+                key={item.id}
+                textColor="white"
+                onClick={() => {
+                  history.push(`/playlist/${item.id}`);
+                }}
+                cursor="pointer"
+              >
                 {item.name}
               </Box>
             ))
