@@ -9,7 +9,6 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import PrivateRoute from "./components/PrivateRoute";
 import Playlist from "./pages/Playlist";
-import Layout from "./components/Layout";
 import DetailPlaylist from "./pages/DetailPlaylist";
 import Profile from "./pages/Profile";
 import { AppProvider } from "./context/AppContext";
@@ -26,8 +25,8 @@ function App() {
               </Route>
             </Switch>
 
-            <Layout>
-              <Switch>
+            <Switch>
+              <Route>
                 <PrivateRoute exact path="/" component={Home} />
                 <PrivateRoute exact path="/playlist" component={Playlist} />
                 <PrivateRoute
@@ -36,8 +35,8 @@ function App() {
                   component={DetailPlaylist}
                 />
                 <PrivateRoute exact path="/profile" component={Profile} />
-              </Switch>
-            </Layout>
+              </Route>
+            </Switch>
           </ChakraProvider>
         </Router>
       </AppProvider>

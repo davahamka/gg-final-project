@@ -4,7 +4,6 @@ import {
   Button,
   GridItem,
   Heading,
-  Image,
   Input,
   SimpleGrid,
   Spinner,
@@ -12,7 +11,6 @@ import {
   Textarea,
   Tooltip,
 } from "@chakra-ui/react";
-import Layout from "../../components/Layout";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import ItemTrack from "../../components/ItemTrack";
 import { FiMusic } from "react-icons/fi";
@@ -25,7 +23,6 @@ import {
 import {
   removeSelectedTracks,
   resetSelectedTracks,
-  setSelectedTracks,
 } from "../../modules/tracks/trackSlice";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 

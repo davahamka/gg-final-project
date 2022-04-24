@@ -1,14 +1,11 @@
 import React, { useEffect } from "react";
 import {
-  Avatar,
   Box,
-  Button,
   Image,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
-  Text,
 } from "@chakra-ui/react";
 import { AiOutlineEllipsis } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "../../hooks";
@@ -20,9 +17,7 @@ const SidebarHeader = () => {
 
   const history = useHistory();
 
-  const { statusProfile, token, dataProfile } = useAppSelector(
-    (state) => state.auth
-  );
+  const { token, dataProfile } = useAppSelector((state) => state.auth);
 
   useEffect(() => {
     if (token) {

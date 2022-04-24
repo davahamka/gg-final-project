@@ -1,12 +1,15 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import { useAppSelector } from "../../hooks";
+import Layout from "../Layout";
 
 type Props = {
-  component: any;
+  component: () => JSX.Element;
+  exact: boolean;
+  path: string;
 };
 
-const PrivateRoute = ({ component: Component, ...rest }: any) => {
+const PrivateRoute = ({ component: Component, ...rest }: Props) => {
   const accessToken = useAppSelector((state) => state.auth.token);
 
   return (
@@ -14,7 +17,9 @@ const PrivateRoute = ({ component: Component, ...rest }: any) => {
       {...rest}
       render={(props) =>
         accessToken ? (
-          <Component {...props} />
+          <Layout>
+            <Component {...(props as any)} />
+          </Layout>
         ) : (
           <Redirect
             to={{
