@@ -1,5 +1,6 @@
 import { Box, Heading, Image, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
+import Layout from "../../components/Layout";
 import { AppContext } from "../../context/AppContext";
 import { useAppSelector } from "../../hooks";
 
@@ -10,7 +11,7 @@ const Profile = () => {
   console.log(dataProfile);
 
   return (
-    <>
+    <Layout>
       <Box px={{ base: "20px", lg: "48px" }} bg={colorTop} pb="48px">
         <Box
           color="white"
@@ -37,7 +38,7 @@ const Profile = () => {
           </Box>
         </Box>
       </Box>
-    </>
+    </Layout>
   );
 };
 

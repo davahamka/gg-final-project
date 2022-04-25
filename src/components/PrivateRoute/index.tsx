@@ -17,9 +17,7 @@ const PrivateRoute = ({ component: Component, ...rest }: Props) => {
       {...rest}
       render={(props) =>
         accessToken ? (
-          <Layout>
-            <Component {...(props as any)} />
-          </Layout>
+          <Component {...(props as any)} />
         ) : (
           <Redirect
             to={{

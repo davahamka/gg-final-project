@@ -25,6 +25,7 @@ import {
   resetSelectedTracks,
 } from "../../modules/tracks/trackSlice";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import Layout from "../../components/Layout";
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -73,7 +74,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <Layout>
       <Box px={{ base: "20px", lg: "48px" }} pb="48px">
         {selectedTracks.length > 0 ? (
           <>
@@ -208,7 +209,7 @@ const Home = () => {
           )}
         </Box>
       </Box>
-    </>
+    </Layout>
   );
 };
 
