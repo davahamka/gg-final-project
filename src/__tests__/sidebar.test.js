@@ -2,15 +2,16 @@
 /* eslint-disable no-undef */
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import Home from "../pages/Home";
 import { store } from "../store";
 import { setupServer} from "msw/node"
 import { mockPlaylistResponse } from "../__mocks__/playlist";
 import { rest } from "msw"
 import Sidebar from "../components/Sidebar";
+import { API_SPOTIFY } from "../utils/constants";
+import { getMyPlaylist } from "../modules/playlist/playlistSlice";
 
 const server = setupServer(
-    rest.get("/users/:id/playlist?accessToken=null&", (req, res, ctx) => {
+    rest.get(API_SPOTIFY+"me/playlists", (req, res, ctx) => {
       return res(ctx.json(mockPlaylistResponse));
     })
   );
@@ -24,10 +25,10 @@ const renderWithProvider = (children) =>
   render(<Provider store={store}>{children}</Provider>);
 
   
-  it("it should render sidebar", () => {
-    renderWithProvider(<Home />)
+  it("it should render sidebar",async () => {
+    renderWithProvider(<Sidebar />)
 
-    const homeMenu = screen.getByText(/home/i)
+    const homeMenu = await screen.getByText(/home/i)
 
     expect(homeMenu).toBeInTheDocument()
 });
@@ -35,9 +36,11 @@ const renderWithProvider = (children) =>
 it("it should shows list of playlist",async () => {
     renderWithProvider(<Sidebar />)
 
-    await screen.findByText("w")
 
-    screen.debug()
+    await store.dispatch(getMyPlaylist())
+    const playlistName =await screen.getByText(/dww/i)
 
-    // expect(homeMenu).toBeInTheDocument()
+  
+
+    expect(playlistName).toBeInTheDocument()
 });
